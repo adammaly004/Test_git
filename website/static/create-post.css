@@ -1,0 +1,38 @@
+.choice-trainings {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.choice-trainings button {
+    padding: 10px 15px;
+}
+
+.form-create-group {
+    display: flex;
+    justify-content: space-around;
+    /*grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;*/
+    /*flex-direction: column;*/
+    margin-bottom: 50px;
+}
+
+.form-create-group label {
+    font-size: 20px;
+    /*margin-left: 40%;*/
+    margin-top: 20px;
+}
+
+.form-create-group label input {
+    font-size: 20px;
+    width: 40px;
+    /*margin-left: 20px;*/
+    outline: none;
+}
+
+.create-button {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 300px;
+    margin-right: 300px;
+}

@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav {
+    display: grid;
+    padding: 10px 40%;
+    height: 40px;
+    background-color: rgb(127, 126, 219);
+    border-bottom: 1px solid black;
+}
+
+.navbar {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    list-style: none;
+   
+}
+
+.logo img {
+    width: 40px;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+    
+}
+
+.container {
+    margin: 50px 20%;
+}
+
+.message {
+    height: 40px;
+    padding: 0px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.red {
+    background-color: lightcoral;
+}
+
+.green {
+    background-color: lightgreen;
+}
+
+.btn-close {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+.btn-close span {
+    font-size: 20px;
+    color: black;
+}
+

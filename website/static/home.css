@@ -1,0 +1,18 @@
+.main-title {
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    font-size: 50px;
+}
+
+.description-list {
+    list-style: none;
+    margin: 50px 50px;
+}
+.description-item {
+    margin: 50px 0px;
+    text-align: center;
+}
+
+.description-item p {
+   font-size: 20px;
+}
