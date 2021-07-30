@@ -1,8 +1,8 @@
-#Flask app - Training diary
+# Flask app - Training diary
 
 This is my first more professional flask webapp
 
-##Some basic Git commands are:
+## Some basic Git commands are:
 
 ```
 git add filename
