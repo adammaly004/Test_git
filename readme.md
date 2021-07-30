@@ -6,7 +6,7 @@ This is my first more professional flask webapp
 
 ```bash
 git add <filename>
-git commit -m "commit"
+git commit -m "commit name"
 git push -u origin main
 ```
 
