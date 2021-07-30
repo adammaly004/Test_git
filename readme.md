@@ -4,15 +4,18 @@ This is my first more professional flask webapp
 
 ## Some basic Git commands are:
 
-```
+```bash
 git add filename
-git commit -m "commit name"
+git commit -m "commit"
 git push -u origin main
 ```
 
-## Setup
+## Setup & Installtion
 Ensure you have python 3.6+ installed.
+```bash
+git clone <repo-url>
 ```
+```bash
 pip install -r requirements.txt
 ```
 
@@ -20,3 +23,7 @@ pip install -r requirements.txt
 ```
 python app.py
 ```
+
+## Viewing The App
+
+Go to `http://127.0.0.1:5000`
