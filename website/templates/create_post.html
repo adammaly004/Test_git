@@ -1,0 +1,93 @@
+{% extends "base.html" %} {% block title %}Create post{% endblock %} {% block content
+%}
+<h1 class="main-title">Make a Post</h1>
+<form method="POST" class="choice-trainings">
+    <button type="submit" name="choice" id="choice1" value="Intervals">intervals</button>
+    <button type="submit" name="choice" id="choice2" value="Long">long run</button>
+    <button type="submit" name="choice" id="choice3" value="Tempo">tempo</button>
+    <button type="submit" name="choice" id="choice4" value="Speed">speed</button>
+    <button type="submit" name="choice" id="choice5" value="Trot">trot</button>
+</form>
+{% if type == "Tempo" %}
+<style>
+    #choice3 {
+        background-color: blue;
+    }
+</style>
+<form method="POST">
+    <h3 class="third-title">{{type}}</h3>
+    <div class="form-create-group">
+        <label for="trot-before">Trot before
+            <input type="text" name="trot-before" id="trot-before" class="kilometres" placeholder="Km" />
+        </label>
+        <label for="abc">
+            <input type="checkbox" name="text" id="abc" class="check-box" value="Abc" />
+            Abc
+        </label>
+        <label for="warmed">
+            <input type="checkbox" name="text" id="warmed" class="check-box" value="Warmed up" />
+            Warmed up
+        </label>
+        <label for="main-kilometres">Kilometres at pace and pace
+            <input type="text" name="main-kilometres" id="main-kilometres" class="kilometres" placeholder="Km" />
+            <input style="width: 80px" type="text" name="pace" id="pace" class="kilometres" placeholder="Km/min" />
+        </label>
+
+        <label for="trot-after">Trot after
+            <input type="text" name="trot-after" id="trot-after" class="kilometres" placeholder="Km" />
+        </label>
+    </div>
+    <div class="button create-button">
+        <button type="submit">Submit</button>
+        <a href="/home"><button type="button" class="btn btn-lg btn-secondary">Back</button></a>
+    </div>
+</form>
+
+{%elif type == "Intervals"%}
+<style>
+    #choice1 {
+        background-color: blue;
+    }
+</style>
+<h3 class="third-title">{{type}}</h3>
+
+{%elif type == "Long"%}
+<style>
+    #choice2 {
+        background-color: blue;
+    }
+</style>
+<h3 class="third-title">{{type}}</h3>
+
+{%elif type == "Speed"%}
+<style>
+    #choice4 {
+        background-color: blue;
+    }
+</style>
+<h3 class="third-title">{{type}}</h3>
+
+{%elif type == "Trot"%}
+<style>
+    #choice5 {
+        background-color: blue;
+    }
+</style>
+<h3 class="third-title">{{type}}</h3>
+
+{%else%}
+<br>
+
+{%endif%}
+<!--<form method="POST">
+    <input type="text" name="text" id="text" class="form-control"></input>
+
+    <div align="center">
+        <button type="submit" class="btn btn-lg btn-primary">Post</button>
+    </div>
+</form>-->
+
+<div align="center">
+    <a href="/home"><button type="button" class="btn btn-lg btn-secondary">Back</button></a>
+</div>
+{% endblock %}
