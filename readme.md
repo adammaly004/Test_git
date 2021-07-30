@@ -1,7 +1,11 @@
-First testing git and github
+#Flask app - Training diary
 
+This is my first more professional flask webapp
 
+##Some basic Git commands are:
 
-"git add <file>"
-"git commit -m "commit name""
-"git push -u origin main"
+```
+git add filename
+git commit -m "commit name"
+git push -u origin main
+```
