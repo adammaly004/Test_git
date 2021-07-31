@@ -1,91 +1,130 @@
 {% extends "base.html" %} {% block title %}Create post{% endblock %} {% block content
 %}
 <h1 class="main-title">Make a Post</h1>
-<form method="POST" class="choice-trainings">
+<!--<form method="POST" class="choice-trainings">
     <button type="submit" name="choice" id="choice1" value="Intervals">intervals</button>
     <button type="submit" name="choice" id="choice2" value="Long">long run</button>
     <button type="submit" name="choice" id="choice3" value="Tempo">tempo</button>
     <button type="submit" name="choice" id="choice4" value="Speed">speed</button>
     <button type="submit" name="choice" id="choice5" value="Trot">trot</button>
-</form>
-{% if type == "Tempo" %}
-<style>
-    #choice3 {
-        background-color: blue;
-    }
-</style>
+</form>-->
+
 <form method="POST">
+    <div class="choice-trainings">
+        <button type="submit" name="choice" id="choice1" value="intervals">intervals</button>
+        <button type="submit" name="choice" id="choice2" value="long">long run</button>
+        <button type="submit" name="choice" id="choice3" value="tempo">tempo</button>
+        <button type="submit" name="choice" id="choice4" value="speed">speed</button>
+        <button type="submit" name="choice" id="choice5" value="trot">trot</button>
+    </div>
     <h3 class="third-title">{{type}}</h3>
+
+    {% if type == "intervals" %}
+    <style>
+        #choice1 {
+            background-color: blue;
+        }
+    </style>
+
+
+
+
+    {% elif type == "long" %}
+    <style>
+        #choice2 {
+            background-color: blue;
+        }
+    </style>
+    <div class="form-create-group">
+        <label for="warmed">
+            <input type="checkbox" name="warm" id="warmed" class="check-box" value="Warmed up" />
+            Warmed up
+        </label>
+        <label for="main-kilometres">Kilometres and pace
+            <input type="text" name="main-kilometres" id="main-kilometres" class="kilometres" placeholder="Km" />
+            <input style="width: 80px" type="text" name="pace" id="pace" class="kilometres" placeholder="Km/min" />
+        </label>
+    </div>
+
+
+    {% elif type == "tempo" %}
+    <style>
+        #choice3 {
+            background-color: blue;
+        }
+    </style>
+
     <div class="form-create-group">
         <label for="trot-before">Trot before
-            <input type="text" name="trot-before" id="trot-before" class="kilometres" placeholder="Km" />
+            <input type="text" name="trot-before" id="trot-before" class="kilometres" placeholder="Km"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
         </label>
         <label for="abc">
-            <input type="checkbox" name="text" id="abc" class="check-box" value="Abc" />
+            <input type="checkbox" name="abc" id="abc" class="check-box" value="Abc" />
             Abc
         </label>
         <label for="warmed">
-            <input type="checkbox" name="text" id="warmed" class="check-box" value="Warmed up" />
+            <input type="checkbox" name="warm" id="warmed" class="check-box" value="Warmed up" />
             Warmed up
         </label>
         <label for="main-kilometres">Kilometres at pace and pace
-            <input type="text" name="main-kilometres" id="main-kilometres" class="kilometres" placeholder="Km" />
+            <input type="text" name="main-kilometres" id="main-kilometres" class="kilometres" placeholder="Km"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
             <input style="width: 80px" type="text" name="pace" id="pace" class="kilometres" placeholder="Km/min" />
         </label>
 
         <label for="trot-after">Trot after
-            <input type="text" name="trot-after" id="trot-after" class="kilometres" placeholder="Km" />
+            <input type="text" name="trot-after" id="trot-after" class="kilometres" placeholder="Km"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
+        </label>
+        <label for="time">Time
+            <input type="time" name="time" step="1" class="time" placeholder="Time" />
         </label>
     </div>
+
+
+
+
+
+
+    {% elif type == "speed" %}
+    <style>
+        #choice4 {
+            background-color: blue;
+        }
+    </style>
+
+
+
+
+
+    {% elif type == "trot" %}
+    <style>
+        #choice5 {
+            background-color: blue;
+        }
+    </style>
+
+    <div class="form-create-group">
+        <label for="time">Time
+            <input type="time" name="time" step="1" class="time" placeholder="Time" />
+        </label>
+        <label for="main-kilometres">Kilometres
+            <input type="text" name="main-kilometres" id="main-kilometres" class="kilometres" placeholder="Km" />
+        </label>
+    </div>
+
+
+
+    {%endif%}
     <div class="button create-button">
-        <button type="submit">Submit</button>
+        <button type="submit" name="type" value={{type}}>Submit</button>
         <a href="/home"><button type="button" class="btn btn-lg btn-secondary">Back</button></a>
     </div>
+
 </form>
 
-{%elif type == "Intervals"%}
-<style>
-    #choice1 {
-        background-color: blue;
-    }
-</style>
-<h3 class="third-title">{{type}}</h3>
 
-{%elif type == "Long"%}
-<style>
-    #choice2 {
-        background-color: blue;
-    }
-</style>
-<h3 class="third-title">{{type}}</h3>
-
-{%elif type == "Speed"%}
-<style>
-    #choice4 {
-        background-color: blue;
-    }
-</style>
-<h3 class="third-title">{{type}}</h3>
-
-{%elif type == "Trot"%}
-<style>
-    #choice5 {
-        background-color: blue;
-    }
-</style>
-<h3 class="third-title">{{type}}</h3>
-
-{%else%}
-<br>
-
-{%endif%}
-<!--<form method="POST">
-    <input type="text" name="text" id="text" class="form-control"></input>
-
-    <div align="center">
-        <button type="submit" class="btn btn-lg btn-primary">Post</button>
-    </div>
-</form>-->
 
 <div align="center">
     <a href="/home"><button type="button" class="btn btn-lg btn-secondary">Back</button></a>

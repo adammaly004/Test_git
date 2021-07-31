@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from flask_login import login_required, current_user
-from .models import User, Activity
+from .models import User, Activity, Save
 from . import db
 
 views = Blueprint("views", __name__)
@@ -22,10 +22,17 @@ def activities():
 @views.route("/create", methods=['GET', 'POST'])
 @login_required
 def create_post():
+
     if request.method == "POST":
-        types = request.form['choice']
+        # Update html file
+        choice = request.form.get('choice')
+
+        # Store informations
+        types = request.form.get('type')
+        save = Save(types)
+
     else:
-        types = ""
+        choice = ""
         flash("Choice training type", category="succes")
 
-    return render_template('create_post.html', user=current_user, type=types)
+    return render_template('create_post.html', user=current_user, type=choice)
