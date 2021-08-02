@@ -24,46 +24,46 @@ class Activity(db.Model):
 class Save:
     def __init__(self, type):
         self.type = type
+        if self.type != None:
+            self.get()
 
-        if self.type == "tempo":
-            self.save_tempo()
-
-        elif self.type == "speed":
-            self.save_speed()
-
-        elif self.type == "long":
-            self.save_long()
-
-        elif self.type == "trot":
-            self.save_trot()
-
-        elif self.type == "intervals":
-            self.save_intervals()
-
-    def save_tempo(self):
-        flash(self.type)
-        trot_before = request.form.get("trot-before")
-        trot_after = request.form.get("trot-after")
-        main_kilometres = request.form.get("main-kilometres")
-        pace = request.form.get("pace")
-        abc = request.form.get("abc")
-        warm_up = request.form.get("warm")
-        time = request.form.get("time")
-
-        total_kilometres = int(trot_before) + \
-            int(main_kilometres) + int(trot_after)
-
-        print(
-            f"Before: {trot_before}, Type: {self.type}, After: {trot_after}, Kilometres: {main_kilometres}, Pace: {pace}, Abc: {abc}, Warm up: {warm_up}, Time: {time}, Total: {total_kilometres}")
-
-    def save_speed(self):
+    def get(self):
         flash(self.type)
 
-    def save_long(self):
-        flash(self.type)
+        self.trot_before = request.form.get("trot-before")
+        self.trot_after = request.form.get("trot-after")
 
-    def save_trot(self):
-        flash(self.type)
+        self.abc = request.form.get("abc")
+        self.warm_up = request.form.get("warm")
 
-    def save_intervals(self):
-        flash(self.type)
+        self.main_kilometres = request.form.get("main-kilometres")
+        self.main_kilometres_time = request.form.get("time-in-tempo")
+
+        self.total_time = request.form.get("time")
+
+        self.total_kilometres = int(self.trot_before) + \
+            int(self.main_kilometres) + int(self.trot_after)
+
+        self.pace = self.get_pace(
+            self.main_kilometres_time, self.main_kilometres)
+        self.total_pace = self.get_pace(self.total_time, self.total_kilometres)
+
+    def get_pace(self, time="00:00:00", kilometres="0"):
+        time_list = time.split(":")
+
+        if len(time_list) == 2:
+            time_list.append("00")
+
+        time_in_minutes = (
+            (int(time_list[0]) * 60) + int(time_list[1]) + (int(time_list[2]) / 60)) / float(kilometres)
+
+        list_seconds = str(time_in_minutes).split(".")
+        sec = round(float("0." + list_seconds[1]) * 60)
+
+        if sec < 10:
+            sec = "0" + str(sec)
+
+        return f"{list_seconds[0]}:{sec}"
+
+    def save(self):
+        pass
