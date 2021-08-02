@@ -1,13 +1,6 @@
 {% extends "base.html" %} {% block title %}Create post{% endblock %} {% block content
 %}
 <h1 class="main-title">Make a Post</h1>
-<!--<form method="POST" class="choice-trainings">
-    <button type="submit" name="choice" id="choice1" value="Intervals">intervals</button>
-    <button type="submit" name="choice" id="choice2" value="Long">long run</button>
-    <button type="submit" name="choice" id="choice3" value="Tempo">tempo</button>
-    <button type="submit" name="choice" id="choice4" value="Speed">speed</button>
-    <button type="submit" name="choice" id="choice5" value="Trot">trot</button>
-</form>-->
 
 <form method="POST">
     <div class="choice-trainings">
@@ -70,7 +63,8 @@
         <label for="main-kilometres">Kilometres at pace and pace
             <input type="text" name="main-kilometres" id="main-kilometres" class="kilometres" placeholder="Km"
                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
-            <input style="width: 80px" type="text" name="pace" id="pace" class="kilometres" placeholder="Km/min" />
+            <!--<input style="width: 80px" type="text" name="pace" id="pace" class="kilometres" placeholder="Km/min" />-->
+            <input type="time" name="time-in-tempo" step="1" class="time" placeholder="Pace time" />
         </label>
 
         <label for="trot-after">Trot after
