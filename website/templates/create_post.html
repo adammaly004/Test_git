@@ -4,30 +4,22 @@
 
 <form method="POST">
     <div class="choice-trainings">
-        <button type="submit" name="choice" id="choice1" value="intervals">intervals</button>
-        <button type="submit" name="choice" id="choice2" value="long">long run</button>
-        <button type="submit" name="choice" id="choice3" value="tempo">tempo</button>
-        <button type="submit" name="choice" id="choice4" value="speed">speed</button>
-        <button type="submit" name="choice" id="choice5" value="trot">trot</button>
+        <button type="submit" name="choice" class="button" value="intervals">intervals</button>
+        <button type="submit" name="choice" class="button" value="long">long run</button>
+        <button type="submit" name="choice" class="button" value="tempo">tempo</button>
+        <button type="submit" name="choice" class="button" value="speed">speed</button>
+        <button type="submit" name="choice" class="button" value="trot">trot</button>
     </div>
     <h3 class="third-title">{{type}}</h3>
 
     {% if type == "intervals" %}
-    <style>
-        #choice1 {
-            background-color: blue;
-        }
-    </style>
+    <h1></h1>
 
 
 
 
     {% elif type == "long" %}
-    <style>
-        #choice2 {
-            background-color: blue;
-        }
-    </style>
+
     <div class="form-create-group">
         <label for="warmed">
             <input type="checkbox" name="warm" id="warmed" class="check-box" value="Warmed up" />
@@ -35,17 +27,13 @@
         </label>
         <label for="main-kilometres">Kilometres and pace
             <input type="text" name="main-kilometres" id="main-kilometres" class="kilometres" placeholder="Km" />
-            <input style="width: 80px" type="text" name="pace" id="pace" class="kilometres" placeholder="Km/min" />
+            <input type="time" name="time-in-tempo" step="1" class="time" placeholder="Pace time" />
         </label>
     </div>
 
 
     {% elif type == "tempo" %}
-    <style>
-        #choice3 {
-            background-color: blue;
-        }
-    </style>
+
 
     <div class="form-create-group">
         <label for="trot-before">Trot before
@@ -82,22 +70,13 @@
 
 
     {% elif type == "speed" %}
-    <style>
-        #choice4 {
-            background-color: blue;
-        }
-    </style>
+    <h1></h1>
 
 
 
 
 
     {% elif type == "trot" %}
-    <style>
-        #choice5 {
-            background-color: blue;
-        }
-    </style>
 
     <div class="form-create-group">
         <label for="time">Time
@@ -123,4 +102,6 @@
 <div align="center">
     <a href="/home"><button type="button" class="btn btn-lg btn-secondary">Back</button></a>
 </div>
+
+
 {% endblock %}

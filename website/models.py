@@ -15,7 +15,10 @@ class User(db.Model, UserMixin):
 
 class Activity(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    type = db.Column(db.Text, nullable=False)
     text = db.Column(db.Text, nullable=False)
+    warm_up = db.Column(db.Text, nullable=False)
+    abc = db.Column(db.Text, nullable=False)
     date_created = db.Column(db.DateTime(timezone=True), default=func.now())
     author = db.Column(db.Integer, db.ForeignKey(
         'user.id', ondelete="CASCADE"), nullable=False)
@@ -66,4 +69,7 @@ class Save:
         return f"{list_seconds[0]}:{sec}"
 
     def save(self):
-        pass
+        new_activity = Activity(
+            type=self.type, warm_up=self.warm_up, abc=self.abc)
+        db.session.add(new_activity)
+        db.session.commit()
