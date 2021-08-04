@@ -11,16 +11,14 @@
         <button type="submit" name="choice" class="button" value="trot">trot</button>
     </div>
     <h3 class="third-title">{{type}}</h3>
-
-    {% if type == "intervals" %}
-    <h1></h1>
-
-
-
-
-    {% elif type == "long" %}
-
+    <label for="description">Description
+        <textarea name="description" id="description" class="textarea"></textarea>
+    </label>
     <div class="form-create-group">
+        {% if type == "intervals" %}
+        <h1></h1>
+
+        {% elif type == "long" %}
         <label for="warmed">
             <input type="checkbox" name="warm" id="warmed" class="check-box" value="Warmed up" />
             Warmed up
@@ -29,13 +27,8 @@
             <input type="text" name="main-kilometres" id="main-kilometres" class="kilometres" placeholder="Km" />
             <input type="time" name="time-in-tempo" step="1" class="time" placeholder="Pace time" />
         </label>
-    </div>
 
-
-    {% elif type == "tempo" %}
-
-
-    <div class="form-create-group">
+        {% elif type == "tempo" %}
         <label for="trot-before">Trot before
             <input type="text" name="trot-before" id="trot-before" class="kilometres" placeholder="Km"
                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
@@ -48,10 +41,9 @@
             <input type="checkbox" name="warm" id="warmed" class="check-box" value="Warmed up" />
             Warmed up
         </label>
-        <label for="main-kilometres">Kilometres at pace and pace
+        <label for="main-kilometres" class="two-items">Kilometres at pace and pace
             <input type="text" name="main-kilometres" id="main-kilometres" class="kilometres" placeholder="Km"
                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
-            <!--<input style="width: 80px" type="text" name="pace" id="pace" class="kilometres" placeholder="Km/min" />-->
             <input type="time" name="time-in-tempo" step="1" class="time" placeholder="Pace time" />
         </label>
 
@@ -62,39 +54,26 @@
         <label for="time">Time
             <input type="time" name="time" step="1" class="time" placeholder="Time" />
         </label>
-    </div>
+
+        {% elif type == "speed" %}
+        <h1></h1>
 
 
+        {% elif type == "trot" %}
 
-
-
-
-    {% elif type == "speed" %}
-    <h1></h1>
-
-
-
-
-
-    {% elif type == "trot" %}
-
-    <div class="form-create-group">
         <label for="time">Time
             <input type="time" name="time" step="1" class="time" placeholder="Time" />
         </label>
         <label for="main-kilometres">Kilometres
             <input type="text" name="main-kilometres" id="main-kilometres" class="kilometres" placeholder="Km" />
         </label>
+        {%endif%}
     </div>
 
-
-
-    {%endif%}
     <div class="button create-button">
         <button type="submit" name="type" value={{type}}>Submit</button>
         <a href="/home"><button type="button" class="btn btn-lg btn-secondary">Back</button></a>
     </div>
-
 </form>
 
 

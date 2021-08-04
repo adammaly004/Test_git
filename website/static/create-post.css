@@ -12,21 +12,18 @@
 .form-create-group {
     display: flex;
     justify-content: space-around;
-    /*grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;*/
-    /*flex-direction: column;*/
-    margin-bottom: 50px;
+    align-items: center;
 }
 
-.form-create-group label {
+label {
     font-size: 20px;
-    /*margin-left: 40%;*/
-    margin-top: 20px;
+    margin: 20px 0px;
+    align-items: center;
 }
 
 .form-create-group label .kilometres {
     font-size: 20px;
     width: 40px;
-    /*margin-left: 20px;*/
     outline: none;
 }
 
@@ -39,4 +36,31 @@
 
 .button-active {
     background-color: blue;
+}
+
+.textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 20px;
+    resize: none;
+    outline: none;
+}
+
+.time {
+    height: 25px;
+    align-items: center;
+    outline: none;
+}
+
+.form-create-group label input[text]{
+    height: 25px;
+}
+
+.two-items {
+    display: flex;
+}
+
+.two-items * {
+    margin: 0 2px;
 }
