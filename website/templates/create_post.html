@@ -4,69 +4,106 @@
 
 <form method="POST">
     <div class="choice-trainings">
-        <button type="submit" name="choice" class="button" value="intervals">intervals</button>
-        <button type="submit" name="choice" class="button" value="long">long run</button>
-        <button type="submit" name="choice" class="button" value="tempo">tempo</button>
-        <button type="submit" name="choice" class="button" value="speed">speed</button>
-        <button type="submit" name="choice" class="button" value="trot">trot</button>
+        <button type="submit" name="choice" class="button button1" value="intervals">intervals</button>
+        <button type="submit" name="choice" class="button button1" value="long">long run</button>
+        <button type="submit" name="choice" class="button button1" value="tempo">tempo</button>
+        <button type="submit" name="choice" class="button button1" value="speed">speed</button>
+        <button type="submit" name="choice" class="button button1" value="trot">trot</button>
     </div>
     <h3 class="third-title">{{type}}</h3>
+    {% if type == "" %}
+    <p>Select type of your training</p>
+    {%else%}
     <label for="description">Description
         <textarea name="description" id="description" class="textarea"></textarea>
     </label>
+    {%endif %}
+
     <div class="form-create-group">
         {% if type == "intervals" %}
-        <h1></h1>
+        <div class="row">
+            <label for="trot-before">Trot before
+                <input type="number" name="trot-before" id="trot-before" class="kilometres" placeholder="Km" />
+            </label>
+            <label for="abc">
+                <input type="checkbox" name="abc" id="abc" class="check-box" value="Abc" />
+                Abc
+            </label>
+            <label for="warmed">
+                <input type="checkbox" name="warm" id="warmed" class="check-box" value="Warmed up" />
+                Warmed up
+            </label>
+            <label for="trot-after">Trot after
+                <input type="number" name="trot-after" id="trot-after" class="kilometres" placeholder="Km" />
+            </label>
+            <label for="time">Time
+                <input type="time" name="time" step="1" class="time" placeholder="Time" />
+            </label>
+        </div>
+        <div class="row">
+            <label for="series">
+                <input type="number" name="series" id="series" class="number" />
+            </label>
+
+        </div>
+
+
+
+
 
         {% elif type == "long" %}
-        <label for="warmed">
-            <input type="checkbox" name="warm" id="warmed" class="check-box" value="Warmed up" />
-            Warmed up
-        </label>
-        <label for="main-kilometres">Kilometres and pace
-            <input type="text" name="main-kilometres" id="main-kilometres" class="kilometres" placeholder="Km" />
-            <input type="time" name="time-in-tempo" step="1" class="time" placeholder="Pace time" />
-        </label>
+        <div class="row">
+            <label for="warmed">
+                <input type="checkbox" name="warm" id="warmed" class="check-box" value="Warmed up" />
+                Warmed up
+            </label>
+            <label for="main-kilometres">Kilometres and pace
+                <input type="number" name="main-kilometres" id="main-kilometres" class="kilometres" placeholder="Km" />
+                <input type="time" name="time-in-tempo" step="1" class="time" placeholder="Pace time" />
+            </label>
+        </div>
 
         {% elif type == "tempo" %}
-        <label for="trot-before">Trot before
-            <input type="text" name="trot-before" id="trot-before" class="kilometres" placeholder="Km"
-                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
-        </label>
-        <label for="abc">
-            <input type="checkbox" name="abc" id="abc" class="check-box" value="Abc" />
-            Abc
-        </label>
-        <label for="warmed">
-            <input type="checkbox" name="warm" id="warmed" class="check-box" value="Warmed up" />
-            Warmed up
-        </label>
-        <label for="main-kilometres" class="two-items">Kilometres at pace and pace
-            <input type="text" name="main-kilometres" id="main-kilometres" class="kilometres" placeholder="Km"
-                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
-            <input type="time" name="time-in-tempo" step="1" class="time" placeholder="Pace time" />
-        </label>
+        <div class="row">
+            <label for="trot-before">Trot before
+                <input type="number" name="trot-before" id="trot-before" class="kilometres" placeholder="Km" />
+            </label>
+            <label for="abc">
+                <input type="checkbox" name="abc" id="abc" class="check-box" value="Abc" />
+                Abc
+            </label>
+            <label for="warmed">
+                <input type="checkbox" name="warm" id="warmed" class="check-box" value="Warmed up" />
+                Warmed up
+            </label>
+            <label for="main-kilometres" class="two-items">Kilometres at pace and pace
+                <input type="number" name="main-kilometres" id="main-kilometres" class="kilometres" placeholder="Km" />
+                <input type="time" name="time-in-tempo" step="1" class="time" placeholder="Pace time" />
+            </label>
 
-        <label for="trot-after">Trot after
-            <input type="text" name="trot-after" id="trot-after" class="kilometres" placeholder="Km"
-                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
-        </label>
-        <label for="time">Time
-            <input type="time" name="time" step="1" class="time" placeholder="Time" />
-        </label>
+            <label for="trot-after">Trot after
+                <input type="number" name="trot-after" id="trot-after" class="kilometres" placeholder="Km" />
+            </label>
+            <label for="time">Time
+                <input type="time" name="time" step="1" class="time" placeholder="Time" />
+            </label>
+        </div>
 
         {% elif type == "speed" %}
-        <h1></h1>
+        <div class="row">
+            <h1></h1>
+        </div>
 
 
         {% elif type == "trot" %}
-
-        <label for="time">Time
-            <input type="time" name="time" step="1" class="time" placeholder="Time" />
-        </label>
-        <label for="main-kilometres">Kilometres
-            <input type="text" name="main-kilometres" id="main-kilometres" class="kilometres" placeholder="Km" />
-        </label>
+        <div class="row">
+            <label for="time">Time
+                <input type="time" name="time" step="1" class="time" placeholder="Time" />
+            </label>
+            <label for="main-kilometres">Kilometres
+                <input type="number" name="main-kilometres" id="main-kilometres" class="kilometres" placeholder="Km" />
+            </label>
+        </div>
         {%endif%}
     </div>
 
@@ -75,12 +112,6 @@
         <a href="/home"><button type="button" class="btn btn-lg btn-secondary">Back</button></a>
     </div>
 </form>
-
-
-
-<div align="center">
-    <a href="/home"><button type="button" class="btn btn-lg btn-secondary">Back</button></a>
-</div>
 
 
 {% endblock %}

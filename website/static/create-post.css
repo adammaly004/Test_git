@@ -11,17 +11,16 @@
 
 .form-create-group {
     display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-label {
-    font-size: 20px;
-    margin: 20px 0px;
-    align-items: center;
-}
-
-.form-create-group label .kilometres {
+.kilometres {
     font-size: 20px;
     width: 40px;
     outline: none;
@@ -64,3 +63,14 @@ label {
 .two-items * {
     margin: 0 2px;
 }
+
+.number {
+    font-size: 20px;
+    width: 20px;
+    outline: none;
+}
+
+.button1 {
+    width: 85px;
+}
+

@@ -62,3 +62,18 @@ nav {
     color: black;
 }
 
+.button {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+label {
+    font-size: 20px;
+    margin: 20px 0px;
+    align-items: center;
+}
+

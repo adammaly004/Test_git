@@ -69,7 +69,8 @@ class Save:
         return f"{list_seconds[0]}:{sec}"
 
     def save(self):
-        new_activity = Activity(
+        """new_activity = Activity(
             type=self.type, warm_up=self.warm_up, abc=self.abc)
         db.session.add(new_activity)
-        db.session.commit()
+        db.session.commit()"""
+        pass
