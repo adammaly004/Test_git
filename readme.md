@@ -10,7 +10,7 @@ git commit -m "commit name"
 git push -u origin main
 ```
 
-## Setup & Installtion
+## Setup & Installation
 Ensure you have python 3.6+ installed.
 ```bash
 git clone <repo-url>
